@@ -1,0 +1,29 @@
+<p>register-reactive works!</p>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm)">
+    <div>
+        <label>
+            Name:
+            <input formControlName="name" placeholder="name"/>
+            <span *ngIf="registrationForm.controls.name.invalid && (registrationForm.controls.name.dirty || registrationForm.controls.name.touched)">Plase provide a name</span>
+        </label>
+        <label>
+            User Name:
+            <input formControlName="username" placeholder="Username"/>
+            <span *ngIf="registrationForm.controls.username.invalid && (registrationForm.controls.username.dirty || registrationForm.controls.username.touched)">Plase provide a User name</span>
+        </label>
+        <label>
+            Password:
+            <input type="password" formControlName="password" placeholder="Password"/>
+            <span *ngIf="registrationForm.controls.password.invalid && (registrationForm.controls.password.dirty || registrationForm.controls.password.touched)">Plase provide a password</span>
+
+        </label>
+        <label>
+            Repeat Password:
+            <input type="password" formControlName="passwordRepeat" placeholder="Password"/>
+            <span *ngIf="registrationForm.controls.passwordRepeat.invalid && (registrationForm.controls.passwordRepeat.dirty || registrationForm.controls.passwordRepeat.touched)">Plase provide a password</span>
+
+        </label>
+
+        <button type="submit" [disabled]="registrationForm.invalid"> Register</button>
+    </div>
+</form>

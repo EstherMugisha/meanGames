@@ -1,0 +1,30 @@
+<p>register-template works!</p>
+<form #registrationForm = "ngForm" (ngSubmit)="onSubmit(registrationForm)" novalidate>
+    <div>
+        <label>
+            Name:
+            <input name="name" id="name" placeholder="name"[(ngModel)]="user.name" ngModel/>
+            <span *ngIf="registrationForm.controls.name.invalid && (registrationForm.controls.name.dirty || registrationForm.controls.name.touched)">Plase provide a name</span>
+
+        </label>
+        <label>
+            User Name:
+            <input name="username" id="username" placeholder="Username"[(ngModel)]="user.username" ngModel/>
+        </label>
+        <label>
+            Password:
+            <input type="password" name="password" id="password" placeholder="Password" 
+            [(ngModel)]="user.password" ngModel/>
+
+        </label>
+        <label>
+            Repeat Password:
+            <input type="password" name="passwordRepeat" id="passwordRepeat"  placeholder="Password"
+            [(ngModel)]="user.passwordRepeat" ngModel/>
+
+        </label>
+
+        <button type="submit" [disabled]="registrationForm.invalid"> Register</button>
+        <button type="submit" (click)="onClear(registrationForm)"> Clear</button>
+    </div>
+</form>

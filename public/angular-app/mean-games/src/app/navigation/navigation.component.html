@@ -1,0 +1,23 @@
+<!-- <p>navigation works!</p>
+<button (click)="homeClick()">Home</button>
+<button (click)="gameClick()">Games</button>
+<button (click)="registerClick()">Register</button>
+<button (click)="parentClick()">Parent</button> -->
+
+<ul class="nav navbar-new">
+    <li>
+        <a [routerLink]="['/']">Home</a>
+    </li>
+    <li>
+        <a [routerLink]="['games']">Games</a>
+    </li>
+    <li>
+        <a [routerLink]="['register']">Register</a>
+    </li>
+    <li>
+        <a [routerLink]="['parent']">Parent</a>
+    </li>
+    <li>
+        <app-login></app-login>
+    </li>
+</ul>

@@ -1,0 +1,24 @@
+<div *ngIf="!userLoggedIn">
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div>
+        <label>
+            User Name:
+            <input type="text" formControlName="username" placeholder="Username"/>
+            <span *ngIf="loginForm.controls.username.invalid && (loginForm.controls.username.dirty || loginForm.controls.username.touched)">Plase provide a User name</span>
+        </label>
+        <label>
+            Password:
+            <input type="password" formControlName="password" placeholder="Password"/>
+            <span *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">Plase provide a password</span>
+
+        </label>
+
+        <button type="submit" [disabled]="loginForm.invalid"> Login</button> {{errorMessage}}
+    </div>
+</form>
+</div>
+
+<div *ngIf="userLoggedIn">
+    Welcome
+    <button (click)="onLogout()" >Logout</button>
+</div>
